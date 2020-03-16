@@ -11,20 +11,17 @@
 <body>
     <form class="form-signin">
         <img class="mb-4" src="https://app.replybutton.com/public/img/logo-login.svg" alt="" width="72" height="72">
-        <div class="form-control">
-            <input type="text" id="handle" class="form-control" placeholder="Your name" required autofocus autocomplete="off">
-        </div>
-        <div class="form-control">
-            <input type="text" id="message" class="form-control" placeholder="Enter a message" autocomplete="off">
-        </div>
-        <button id="button" class="btn btn-lg btn-primary btn-block" type="button">Send</button>
+        <input type="text" id="handle" class="form-control" placeholder="Your name" required autofocus autocomplete="off">
+        <input type="text" id="email" class="form-control" placeholder="Your email" required autofocus autocomplete="off">
     </form>
-
-    <div class="chat-window">
-        <div id="output"></div>
-        <div id="typing"></div>
+    <div class="container">
+        <div class="chat-window">
+            <div id="output"></div>
+            <div id="typing"></div>
+        </div>
+        <input type="text" id="message" class="form-control" placeholder="Enter a message" autocomplete="off">
+        <button id="button" class="btn btn-lg btn-primary btn-block" type="button">Send</button>
     </div>
-
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js" async defer></script>
 </body>

@@ -6,6 +6,10 @@ const message = document.getElementById('message'),
     typing = document.getElementById('typing'),
     button = document.getElementById('button');
 
+    message.addEventListener('keypress', ()=>{
+        socket.emit('userTyping', handle.value);
+    });
+
     button.addEventListener('click', ()=>{
         socket.emit('userMessage', {
             handle: handle.value,
@@ -13,14 +17,10 @@ const message = document.getElementById('message'),
         });
     });
 
-    message.addEventListener('keypress', ()=>{
-        socket.emit('userTyping', handle.value);
-    });
-
     socket.on('userMessage', (data)=>{
         output.innerHTML += '<p><strong>'+data.handle+':</strong>' + data.message+ '</p>';
     });
 
-    socket.on('userTyping', ()=>{
+    socket.on('userTyping', (data)=>{
         typing.innerHTML = '<p><em>'+data+' is typing...</em></p>';
     });

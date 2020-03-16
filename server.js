@@ -21,6 +21,8 @@ io.on('connection', (socket)=>{
         io.sockets.emit('userMessage', data);
     });
 
-
+    socket.on('userTyping', (data)=>{
+        socket.broadcast.emit('userTyping', data);
+    });
 
 });

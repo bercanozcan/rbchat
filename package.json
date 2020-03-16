@@ -1,0 +1,15 @@
+{
+  "name": "rbchat",
+  "version": "1.0.0",
+  "description": "Replybutton Chat App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Bercan Özcan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

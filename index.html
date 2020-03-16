@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RB Chat</title>
+    <link rel="stylesheet" href="">
 </head>
+
 <body>
-    <h1>Welcome to RB Chat</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Welcome to RB Chat</h1>
+
+    <form class="form-signin">
+        <img class="mb-4" src="https://app.replybutton.com/public/img/logo-login.svg" alt="" width="72" height="72">
+        <input type="email" id="handle" class="form-control" placeholder="Your name" required autofocus>
+        <input type="text" id="message" class="form-control" placeholder="Enter a message" required>
+        <button id="button" class="btn btn-lg btn-primary btn-block" type="button">Send</button>
+    </form>
+
+    <div class="chat-window">
+        <div id="output"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js" async defer></script>
 </body>
+
 </html>

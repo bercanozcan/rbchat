@@ -10,10 +10,17 @@ app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(PORT, ()=>{
+http.listen(PORT, ()=>{
     console.log("Listening port " + 3000);
 });
 
 io.on('connection', (socket)=>{
     console.log("client is connected" + socket.id);
+
+    socket.on('userMessage', (data)=>{
+        io.sockets.emit('userMessage', data);
+    });
+
+
+
 });

@@ -24,5 +24,9 @@ const message = document.getElementById('message'),
     });
 
     socket.on('userTyping', (data)=>{
-        typing.innerHTML = '<p><em>'+data+' is typing...</em></p>';
+        if (data) {
+            typing.innerHTML = '<p><em>'+data+' is typing...</em></p>';
+        } else {
+            typing.innerHTML = '';
+        }
     });

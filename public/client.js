@@ -16,7 +16,7 @@ const message = document.getElementById('message'),
             message: message.value
         });
         typing.innerHTML = '';
-        message.val = '';
+        message.value = '';
     });
 
     socket.on('userMessage', (data)=>{

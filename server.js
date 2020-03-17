@@ -17,6 +17,10 @@ http.listen(PORT, ()=>{
 io.on('connection', (socket)=>{
     console.log("client is connected" + socket.id);
 
+    socket.on('userInfo', ()=>{
+        io.sockets.emit('userInfo', socket.id);
+    });
+
     socket.on('userMessage', (data)=>{
         io.sockets.emit('userMessage', data);
     });

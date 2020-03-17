@@ -1,29 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RB Chat</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <form class="form-signin">
-        <img class="mb-4" src="https://app.replybutton.com/public/img/logo-login.svg" alt="" width="72" height="72">
-        <input type="text" id="handle" class="form-control" placeholder="Your name" required autofocus autocomplete="off">
-        <input type="text" id="email" class="form-control" placeholder="Your email" required autofocus autocomplete="off">
-    </form>
-    <div class="container">
-        <div class="chat-window">
-            <div id="output"></div>
-            <div id="typing"></div>
+    <div class="chat">
+        <div class="sidebar">
+            <div class="search">
+                <input type="text" placeholder="Search..">
+                <i class="fa fa-search"></i>
+            </div>
+            <div class="contacts">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg"
+                                alt="">
+                            <span class="contact">
+                                <span class="name">Meet 1</span>
+                                <span class="message">Hello team!</span>
+                            </span>
+                            <span class="notifications"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <input type="text" id="message" class="form-control" placeholder="Enter a message" autocomplete="off">
-        <button id="button" class="btn btn-lg btn-primary btn-block" type="button">Send</button>
+        <div class="content">
+            <div class="message-header">
+                <div class="user-info">
+                    <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d666d755805919c8dd0b2fbd8c996a19fe97a18_full.jpg" alt=" ">
+                    <div class="user">
+                        <div class="name">Bercan Özcan</div>
+                        <div class="time">10 min ago</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="message-content">
+                <div class="message">
+                    <div class="bubble">
+                        Team team team1
+                    </div>
+                    <div class="time">1 dk önce</div>
+                </div>
+                <div class="message me">
+                    <div class="bubble">
+                        Team team team2
+                    </div>
+                    <div class="time">1 dk önce</div>
+                </div>
+                <div class="message">
+                    <div class="bubble">
+                        Team team team3
+                    </div>
+                    <div class="time">1 dk önce</div>
+                </div>
+                <div class="message">
+                    <div class="bubble">
+                        Team team team1
+                    </div>
+                    <div class="time">1 dk önce</div>
+                </div>
+            </div>
+            <div class="message-form">
+                <ul>
+                    <li class="emoji-btn" style="display:none;">
+                        <a href="#">
+                            <i class="fa fa-smile-o"></i>
+                        </a>
+                    </li>
+                    <li class="input">
+                        <input type="text" placeholder="Text to speech...">
+                    </li>
+                    <li class="voice-btn">
+                        <a href="#">
+                            <i class="fa fa-microphone"></i>
+                        </a>
+                    </li>
+                    <li class="attachment-btn" style="display:none;">
+                        <a href="#">
+                            <i class="fa fa-image"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/client.js" async defer></script>
 </body>
 
 </html>

@@ -1,24 +1,17 @@
 const socket = io();
 
 const message = document.getElementById('message'),
-    handle = 'B',
     output = document.getElementById('output'),
-    typing = document.getElementById('typing'),
     button = document.getElementById('button');
 
-message.addEventListener('keypress', () => {
-    socket.emit('userTyping', handle.value);
-});
-
 button.addEventListener('click', () => {
-    socket.emit('userMessage', {
-        handle: handle.value,
-        message: message.value
+    socket.emit('createMessage', {
+        handle: 'B',
+        message: message.value,
+        createAt: new Date().getTime()
     });
     typing.innerHTML = '';
     message.value = '';
-    var sizes = 0;
-    output.scrollTop = output.scrollHeight;
 });
 
 message.addEventListener("keyup", function (event) {
@@ -28,26 +21,26 @@ message.addEventListener("keyup", function (event) {
     }
 });
 
-socket.on('userMessage', (data) => {
+socket.on('createMessage', (data) => {
+    const formattedTime = moment(data.createAt).format('LT');
+    console.log(data);
     var html = '';
     html += '<div class="message">';
     html += '<div class="bubble">';
     html += data.message;
     html += '</div>';
-    html += '<div class="time">1 min ago</div>';
+    html += '<div class="time">'+formattedTime+'</div>';
     html += '</div>';
+
     output.innerHTML += html;
     html = '';
 });
 
-socket.on('userInfo', (data) => {
-    console.log(data);
+
+socket.on('connect', () => {
+    console.log('Connected to server');
 });
 
-socket.on('userTyping', (data) => {
-    if (data) {
-        typing.innerHTML = '<p><em>' + data + ' is typing...</em></p>';
-    } else {
-        typing.innerHTML = '';
-    }
+socket.on('disconnect', () => {
+    console.log('Disconnected to server');
 });

@@ -6,27 +6,29 @@ const PORT = 3000;
 
 app.use(express.static('public'));
 
-app.get('/', (req,res)=>{
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-http.listen(PORT, ()=>{
-    console.log("Listening port " + 3000);
+io.on('connection', (socket) => {
+
+    console.log(`A new user connected ${socket.id}`);
+
+    socket.on('createMessage', (data) => {
+        io.sockets.emit('createMessage', data);
+        io.emit('newMessage', {
+            handle: data.handle,
+            message: data.message,
+            createAt: new Date().getTime()
+        });
+    });
+
+    socket.on('disconnect', () => {
+        console.log(`User was disconnected`);
+    });
+
 });
 
-io.on('connection', (socket)=>{
-    console.log("client is connected" + socket.id);
-
-    socket.on('userInfo', ()=>{
-        io.sockets.emit('userInfo', socket.id);
-    });
-
-    socket.on('userMessage', (data)=>{
-        io.sockets.emit('userMessage', data);
-    });
-
-    socket.on('userTyping', (data)=>{
-        socket.broadcast.emit('userTyping', data);
-    });
-
+http.listen(PORT, () => {
+    console.log("Listening port " + 3000);
 });

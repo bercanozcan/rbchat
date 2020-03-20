@@ -52,6 +52,7 @@ const handleAction = async () => {
     });
     typing.innerHTML = '';
     message.value = '';
+    actionButton.disabled = false;
 }
 
 message.addEventListener("keyup", function (event) {

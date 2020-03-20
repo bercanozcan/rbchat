@@ -249,7 +249,7 @@ body {
   padding: 0 15px;
 }
 
-.chat .content .message-form ul li a {
+.chat .content .message-form ul li button, .chat .content .message-form ul li a {
   width: 36px;
   height: 36px;
   display: block;
@@ -264,6 +264,6 @@ body {
   background: red;
 }
 
-.chat .content .message-form ul li.voice-btn a {
+.chat .content .message-form ul li.voice-btn button {
   background: #166cbf;
 }

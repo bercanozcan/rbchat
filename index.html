@@ -51,30 +51,7 @@
                 </div>
             </div>
             <div class="message-content" id="output">
-                <div class="message">
-                    <div class="bubble">
-                        Team team team1
-                    </div>
-                    <div class="time">1 min ago</div>
-                </div>
-                <div class="message me">
-                    <div class="bubble">
-                        Team team team2
-                    </div>
-                    <div class="time">1 min ago</div>
-                </div>
-                <div class="message">
-                    <div class="bubble">
-                        Team team team3
-                    </div>
-                    <div class="time">1 min ago</div>
-                </div>
-                <div class="message">
-                    <div class="bubble">
-                        Team team team1
-                    </div>
-                    <div class="time">1 min ago</div>
-                </div>
+
             </div>
             <div class="message-form">
                 <div class="typing" id="typing"></div>
@@ -84,14 +61,20 @@
                             <i class="fa fa-smile-o"></i>
                         </a>
                     </li>
-                    <li class="input">
-                        <input type="text" placeholder="Text to speech..." id="message" autocomplete="off">
-                    </li>
                     <li class="voice-btn">
+                        <button type="button" onclick="handleAction()" id="action">
+                            <i class="fa fa-microphone fa-lg"></i>
+                        </button>
+                    </li>
+                    <li class="input">
+                        <input type="text" placeholder="Your message..." id="message" autocomplete="off" readonly>
+                    </li>
+                    <li class="voice-btn" style="display:none;">
                         <a href="javascript:void(0);" id="button">
-                            <i class="fa fa-microphone"></i>
+                            <i class="fa fa-paper-plane"></i>
                         </a>
                     </li>
+
                     <li class="attachment-btn" style="display:none;">
                         <a href="#">
                             <i class="fa fa-image"></i>

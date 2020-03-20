@@ -76,14 +76,3 @@ socket.on('createMessage', (data) => {
     html = '';
 });
 
-
-socket.on('connect', () => {
-    console.log('Connected to server');
-});
-
-socket.on('disconnect', () => {
-    console.log('Disconnected to server');
-});
-
-
-

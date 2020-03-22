@@ -50,7 +50,7 @@ const handleAction = async () => {
     actionButton.disabled = true;
     actionButton.style.backgroundColor = "red";
     recorder.start();
-    await sleep(3000);
+    await sleep(60000);
     const audio = await recorder.stop();
     actionButton.style.backgroundColor = "#166cbf";
     typing.innerHTML = '';

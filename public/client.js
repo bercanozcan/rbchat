@@ -3,7 +3,6 @@ const recordAudio = () =>
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         const mediaRecorder = new MediaRecorder(stream);
         const audioChunks = [];
-
         mediaRecorder.addEventListener("dataavailable", event => {
             audioChunks.push(event.data);
         });
@@ -13,7 +12,17 @@ const recordAudio = () =>
         const stop = () =>
             new Promise(resolve => {
                 mediaRecorder.addEventListener("stop", () => {
-                    const audioBlob = new Blob(audioChunks);
+                    const audioBlob = new Blob(audioChunks, { 'type': 'audio/ogg; codecs=opus' });
+                    var reader = new FileReader();
+                    reader.readAsDataURL(audioBlob);
+                    reader.onloadend = function () {
+                        console.log(reader.result);
+                        socket.emit('createMessage', {
+                            handle: 'B',
+                            message: reader.result,
+                            createAt: new Date().getTime()
+                        });
+                    }
                     const audioUrl = URL.createObjectURL(audioBlob);
                     const audio = new Audio(audioUrl);
                     const play = () => audio.play();
@@ -35,7 +44,6 @@ const message = document.getElementById('message'),
     output = document.getElementById('output'),
     button = document.getElementById('button');
 
-
 const handleAction = async () => {
     const recorder = await recordAudio();
     const actionButton = document.getElementById('action');
@@ -45,11 +53,6 @@ const handleAction = async () => {
     await sleep(3000);
     const audio = await recorder.stop();
     actionButton.style.backgroundColor = "#166cbf";
-    socket.emit('createMessage', {
-        handle: 'B',
-        message: audio.audioUrl,
-        createAt: new Date().getTime()
-    });
     typing.innerHTML = '';
     message.value = '';
     actionButton.disabled = false;
@@ -68,7 +71,7 @@ socket.on('createMessage', (data) => {
     var html = '';
     html += '<div class="message me">';
     html += '<div class="bubble">';
-    html += '<audio controls src="'+data.message+'"></audio>';
+    html += '<audio controls src="' + data.message + '"></audio>';
     html += '</div>';
     html += '<div class="time">' + formattedTime + '</div>';
     html += '</div>';
